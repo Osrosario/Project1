@@ -11,29 +11,26 @@ public class Button : MonoBehaviour
 
 
     void Start()
-    {
-
+    { 
         meshRenderer = GetComponent<MeshRenderer>();
     }
 
     private string buttonMessage = "Toggled!";
-    // Start is called before the first frame update
+   
     public void OnUse()
     {
-        Debug.Log("button" +buttonMessage);
+        Debug.Log("button" + buttonMessage);
         ButtonToggle = true;
+        
+        if (ButtonToggle != true)
         {
-            if (ButtonToggle != true)
-            {
-                Floor.SetActive(false);
-                meshRenderer.material = newMaterial[0];
-            }
-            else
-            {
-                Floor.SetActive(true);
-                meshRenderer.material = newMaterial[1];
-            }
+            Floor.SetActive(false);
+            meshRenderer.material = newMaterial[0];
         }
-
+        else
+        {
+            Floor.SetActive(true);
+            meshRenderer.material = newMaterial[1];
+        }
     }
 }

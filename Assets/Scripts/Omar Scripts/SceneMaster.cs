@@ -5,5 +5,5 @@ using UnityEngine.SceneManagement;
 
 public class SceneMaster : MonoBehaviour
 {
-    //Controls when scene chnages
+    //Controls when scene changes
 }

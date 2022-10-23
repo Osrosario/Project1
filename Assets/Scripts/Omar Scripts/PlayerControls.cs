@@ -19,7 +19,7 @@ public class PlayerControls : MonoBehaviour
 
     void Start()
     {
-        //Initialize spawn point
+        //Initialize spawn point.
         spawnPoint = transform.position;
         
         Cursor.lockState = CursorLockMode.Locked;
@@ -32,17 +32,17 @@ public class PlayerControls : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            //Empty conditional statement for future raycast functionality
+            //Empty conditional statement for future raycast functionality.
         }
 
-        //Respawn condition if player falls off the map
+        //Respawn condition if player falls off the map.
         if (transform.position.y < -20)
         {
             transform.position = spawnPoint;
         }
     }
 
-    //Controls the movement of the camera using mouse movement
+    //Controls the movement of the camera using mouse movement.
     private void Camera()
     {
         float mouseYInput = Input.GetAxis("Mouse Y") * MouseSensitivity;
@@ -54,7 +54,8 @@ public class PlayerControls : MonoBehaviour
         transform.rotation = Quaternion.Euler(transform.eulerAngles + new Vector3(0f, mouseXInput, 0f));
     }
 
-    //Controls the movement of the player object using WASD or arrow keys
+    //Controls the movement of the player object using WASD or arrow keys.
+    //Allows the player to double jump.
     private void Movement()
     {
         Vector3 movement = Vector3.zero;
