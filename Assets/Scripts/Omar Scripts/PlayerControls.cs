@@ -29,10 +29,11 @@ public class PlayerControls : MonoBehaviour
     {
         Camera();
         Movement();
+        
 
         if (Input.GetMouseButton(0))
         {
-            //Empty conditional statement for future raycast functionality.
+            playerButton();
         }
 
         //Respawn condition if player falls off the map.
@@ -41,6 +42,8 @@ public class PlayerControls : MonoBehaviour
             transform.position = spawnPoint;
         }
     }
+    //Controls Toggling button in the maze's allowing the doors to open
+
 
     //Controls the movement of the camera using mouse movement.
     private void Camera()
@@ -88,4 +91,20 @@ public class PlayerControls : MonoBehaviour
 
         CC.Move(movement);
     }
+    private void playerButton()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(CamTransform.position, CamTransform.forward, out hit))
+        {
+            //Debug.Log(hit.collider.gameObject.name);
+            //SwitchButton();
+            Button pressButtonHit = hit.collider.GetComponent<Button>();
+            if(pressButtonHit != null)
+            {
+                pressButtonHit.operate();
+            }
+        }
+    }
+    
 }
