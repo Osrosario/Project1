@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wall1 : MonoBehaviour
+public class ButtonUp2 : MonoBehaviour
 {
-    //Insert object pivot
+    
     public Animator doorAnimatorA;
-    public Animator doorAnimatorB;
+
+    public Material[] newMaterial = new Material[1];
+    public MeshRenderer meshRenderer;
 
     //Determines if the door is closed or open
     private string doorState = "closed";
@@ -15,20 +17,24 @@ public class Wall1 : MonoBehaviour
     private bool isMoving = false;
 
     //Function to call from raycast.
+    void Start()
+    {
+        meshRenderer = GetComponent<MeshRenderer>();
+    }
     public void operate()
     {
         if (doorState == "closed" && !isMoving)
         {
-            doorAnimatorA.Play("MW1_Move_Right");
-            doorAnimatorB.Play("MW2_Move_Right");
+            doorAnimatorA.Play("MW2_Move_Down");
             isMoving = true;
+            meshRenderer.material = newMaterial[0];
             StartCoroutine(doorOperating());
         }
         else if (doorState == "open" && !isMoving)
         {
-            doorAnimatorA.Play("MW1_Move_Left");
-            doorAnimatorB.Play("MW2_Move_Left");
+            doorAnimatorA.Play("MW2_Move_Up");
             isMoving = true;
+            meshRenderer.material = newMaterial[0];
             StartCoroutine(doorOperating());
         }
     }

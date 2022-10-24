@@ -100,11 +100,43 @@ public class PlayerControls : MonoBehaviour
             //Debug.Log(hit.collider.gameObject.name);
             //SwitchButton();
             Button pressButtonHit = hit.collider.GetComponent<Button>();
-            if(pressButtonHit != null)
+            ButtonUp pressUpHit = hit.collider.GetComponent<ButtonUp>();
+            //maze 2 buttons
+            ButtonUpM2 pressUpHitM2 = hit.collider.GetComponent<ButtonUpM2>();
+            ButtonUp1 pressUpHit1 = hit.collider.GetComponent<ButtonUp1>();
+            ButtonUp2 pressUpHit2 = hit.collider.GetComponent<ButtonUp2>();
+            ButtonUp3 pressUpHit3 = hit.collider.GetComponent<ButtonUp3>();
+            ButtonRotate pressRotateHit = hit.collider.GetComponent<ButtonRotate>();
+            //Button pressButton = hit.collider.GetComponent<Button>();
+            if (pressButtonHit != null)
             {
                 pressButtonHit.operate();
             }
+            if (pressUpHit != null)
+            {
+                pressUpHit.operate();
+            }
+            //maze 2 buttons
+            if (pressUpHitM2 != null)
+            {
+                pressUpHitM2.operate();
+            }
+            if (pressUpHit1 != null)
+            {
+                pressUpHit1.operate();
+            }
+            if (pressUpHit2 != null)
+            {
+                pressUpHit2.operate();
+            }
+            if (pressUpHit3 != null)
+            {
+                pressUpHit3.operate();
+            }
+            if (pressRotateHit != null)
+            {
+                pressRotateHit.operate();
+            }
         }
     }
-    
 }
