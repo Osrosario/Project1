@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonUp2 : MonoBehaviour
+public class ButtonTwoDoor : MonoBehaviour
 {
-    
-    public Animator doorAnimatorA;
+
+    public Animator[] doorAnimatorA, doorAnimatorB = new Animator[0]; 
 
     public Material[] newMaterial = new Material[1];
     public MeshRenderer meshRenderer;
+    public string[] strA, strB = new string[0];
 
     //Determines if the door is closed or open
     private string doorState = "closed";
@@ -25,14 +26,17 @@ public class ButtonUp2 : MonoBehaviour
     {
         if (doorState == "closed" && !isMoving)
         {
-            doorAnimatorA.Play("MW2_Move_Down");
+            doorAnimatorA[0].Play(strA[0]);
+            doorAnimatorB[0].Play(strB[0]);
             isMoving = true;
-            meshRenderer.material = newMaterial[0];
+            meshRenderer.material = newMaterial[1];
             StartCoroutine(doorOperating());
         }
         else if (doorState == "open" && !isMoving)
         {
-            doorAnimatorA.Play("MW2_Move_Up");
+            doorAnimatorA[0].Play(strA[1]);
+            doorAnimatorB[0
+                ].Play(strB[1]);
             isMoving = true;
             meshRenderer.material = newMaterial[0];
             StartCoroutine(doorOperating());

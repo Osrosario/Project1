@@ -143,7 +143,6 @@ GameObject:
   - component: {fileID: 7178408306328347367}
   - component: {fileID: 7178408306328347364}
   - component: {fileID: 3460333388023012086}
-  - component: {fileID: 5148422964876984676}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -246,22 +245,5 @@ MonoBehaviour:
   newMaterial:
   - {fileID: 0}
   meshRenderer: {fileID: 0}
-  str: []
---- !u!114 &5148422964876984676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7178408306328347363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ed7b39b48dce62449cf8bb824c5d674, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorAnimatorA: {fileID: 0}
-  doorAnimatorB: {fileID: 0}
-  newMaterial:
-  - {fileID: 2100000, guid: 3525399e7f587df4a8e00de0200742dd, type: 2}
-  - {fileID: 2100000, guid: 7175df4c2e67af34fab58ade860e8763, type: 2}
-  meshRenderer: {fileID: 7178408306328347367}
+  strA: []
+  strB: []

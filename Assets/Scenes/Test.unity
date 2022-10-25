@@ -18922,6 +18922,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 718247901}
     m_Modifications:
     - target: {fileID: 3460333388023012086, guid: 85b590cab0cb97f4cad2bf07f689d31d, type: 3}
+      propertyPath: meshRenderer
+      value: 
+      objectReference: {fileID: 1594051313}
+    - target: {fileID: 3460333388023012086, guid: 85b590cab0cb97f4cad2bf07f689d31d, type: 3}
       propertyPath: str.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -18950,6 +18954,10 @@ PrefabInstance:
       value: MW2_Move_Left
       objectReference: {fileID: 0}
     - target: {fileID: 3460333388023012086, guid: 85b590cab0cb97f4cad2bf07f689d31d, type: 3}
+      propertyPath: newMaterial.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460333388023012086, guid: 85b590cab0cb97f4cad2bf07f689d31d, type: 3}
       propertyPath: doorAnimatorA.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -18958,19 +18966,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3460333388023012086, guid: 85b590cab0cb97f4cad2bf07f689d31d, type: 3}
+      propertyPath: newMaterial.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3525399e7f587df4a8e00de0200742dd, type: 2}
+    - target: {fileID: 3460333388023012086, guid: 85b590cab0cb97f4cad2bf07f689d31d, type: 3}
+      propertyPath: newMaterial.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7175df4c2e67af34fab58ade860e8763, type: 2}
+    - target: {fileID: 3460333388023012086, guid: 85b590cab0cb97f4cad2bf07f689d31d, type: 3}
       propertyPath: doorAnimatorA.Array.data[0]
       value: 
       objectReference: {fileID: 1005141126}
     - target: {fileID: 3460333388023012086, guid: 85b590cab0cb97f4cad2bf07f689d31d, type: 3}
       propertyPath: doorAnimatorB.Array.data[0]
-      value: 
-      objectReference: {fileID: 485010271}
-    - target: {fileID: 5148422964876984676, guid: 85b590cab0cb97f4cad2bf07f689d31d, type: 3}
-      propertyPath: doorAnimatorA
-      value: 
-      objectReference: {fileID: 1005141126}
-    - target: {fileID: 5148422964876984676, guid: 85b590cab0cb97f4cad2bf07f689d31d, type: 3}
-      propertyPath: doorAnimatorB
       value: 
       objectReference: {fileID: 485010271}
     - target: {fileID: 7178408305329375016, guid: 85b590cab0cb97f4cad2bf07f689d31d, type: 3}
@@ -18983,7 +18991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7178408305329375019, guid: 85b590cab0cb97f4cad2bf07f689d31d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.01
+      value: -47.2
       objectReference: {fileID: 0}
     - target: {fileID: 7178408305329375019, guid: 85b590cab0cb97f4cad2bf07f689d31d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18991,7 +18999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7178408305329375019, guid: 85b590cab0cb97f4cad2bf07f689d31d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.92
+      value: 44.7
       objectReference: {fileID: 0}
     - target: {fileID: 7178408305329375019, guid: 85b590cab0cb97f4cad2bf07f689d31d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19741,11 +19749,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1073829841038546571, guid: a92bdbbbd846ec446aaea9da5f2983ce, type: 3}
       propertyPath: str.Array.data[0]
-      value: '"MW3_Move_Up"'
+      value: MW3_Move_Up
       objectReference: {fileID: 0}
     - target: {fileID: 1073829841038546571, guid: a92bdbbbd846ec446aaea9da5f2983ce, type: 3}
       propertyPath: str.Array.data[1]
-      value: '"MW3_Move_Down"'
+      value: MW3_Move_Down
       objectReference: {fileID: 0}
     - target: {fileID: 1073829841038546571, guid: a92bdbbbd846ec446aaea9da5f2983ce, type: 3}
       propertyPath: newMaterial.Array.size
@@ -23024,6 +23032,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589047905}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1594051313 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7178408306328347367, guid: 85b590cab0cb97f4cad2bf07f689d31d, type: 3}
+  m_PrefabInstance: {fileID: 1345755610}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1594858932
 GameObject:
   m_ObjectHideFlags: 0

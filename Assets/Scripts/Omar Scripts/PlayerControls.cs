@@ -97,13 +97,8 @@ public class PlayerControls : MonoBehaviour
 
         if (Physics.Raycast(CamTransform.position, CamTransform.forward, out hit))
         {
-            //Debug.Log(hit.collider.gameObject.name);
-            //SwitchButton();
             ButtonTwoDoor pressButtonHit = hit.collider.GetComponent<ButtonTwoDoor>();
             ButtonOneDoor pressOneHit = hit.collider.GetComponent<ButtonOneDoor>();
-            //maze 2 buttons
-            ButtonRotate pressRotateHit = hit.collider.GetComponent<ButtonRotate>();
-            //Button pressButton = hit.collider.GetComponent<Button>();
             if (pressButtonHit != null)
             {
                 pressButtonHit.operate();
@@ -111,11 +106,6 @@ public class PlayerControls : MonoBehaviour
             if (pressOneHit != null)
             {
                 pressOneHit.operate();
-            }
-            //maze 2 buttons
-            if (pressRotateHit != null)
-            {
-                pressRotateHit.operate();
             }
         }
     }
