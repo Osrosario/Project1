@@ -29,11 +29,10 @@ public class PlayerControls : MonoBehaviour
     {
         Camera();
         Movement();
-        
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            playerButton();
+            Keypad();
         }
 
         //Respawn condition if player falls off the map.
@@ -42,8 +41,6 @@ public class PlayerControls : MonoBehaviour
             transform.position = spawnPoint;
         }
     }
-    //Controls Toggling button in the maze's allowing the doors to open
-
 
     //Controls the movement of the camera using mouse movement.
     private void Camera()
@@ -91,21 +88,18 @@ public class PlayerControls : MonoBehaviour
 
         CC.Move(movement);
     }
-    private void playerButton()
+
+    private void Keypad()
     {
         RaycastHit hit;
 
         if (Physics.Raycast(CamTransform.position, CamTransform.forward, out hit))
         {
-            ButtonTwoDoor pressButtonHit = hit.collider.GetComponent<ButtonTwoDoor>();
-            ButtonOneDoor pressOneHit = hit.collider.GetComponent<ButtonOneDoor>();
-            if (pressButtonHit != null)
+            Key hitKey = hit.collider.GetComponent<Key>();
+
+            if (hitKey != null)
             {
-                pressButtonHit.operate();
-            }
-            if (pressOneHit != null)
-            {
-                pressOneHit.operate();
+                hitKey.PressKey();
             }
         }
     }
