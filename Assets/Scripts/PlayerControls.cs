@@ -33,8 +33,8 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Keypad();
-            Screw();
-            Vent();
+            RemoveScrew();
+            MoveVent();
         }
 
         //Respawn condition if player falls off the map.
@@ -106,7 +106,7 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    private void Screw()
+    private void RemoveScrew()
     {
         RaycastHit hit;
 
@@ -121,17 +121,17 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    private void Vent()
+    private void MoveVent()
     {
         RaycastHit hit;
 
         if (Physics.Raycast(CamTransform.position, CamTransform.forward, out hit))
         {
-            Vent hitVent = hit.collider.GetComponent<Vent>();
+            Panel hitPanel = hit.collider.GetComponent<Panel>();
 
-            if (hitVent != null)
+            if (hitPanel != null)
             {
-                hitVent.RemoveVent();
+                hitPanel.Move();
             }
         }
     }

@@ -603,6 +603,9 @@ MonoBehaviour:
   DeniedSound: {fileID: 8300000, guid: 327b37cfb32aa44488251140fbe1cbe5, type: 3}
   DisplayText: {fileID: 7802253867309461263}
   Password: 1234
+  UnlockDoor:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!82 &7802253865899901688
 AudioSource:
   m_ObjectHideFlags: 0
@@ -930,7 +933,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 049a8f1961886e3418dcaacd1414457f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
