@@ -103,4 +103,17 @@ public class PlayerControls : MonoBehaviour
             }
         }
     }
+	private void SwitchButton()
+{
+    RaycastHit hit;
+    if (Physics.Raycast(CamTransform.position, CamTransform.forward, out hit))
+    {
+        Debug.DrawLine(CamTransform.position + new Vector3(0f, -1f, 0f), hit.point, Color.green, 5f);
+        Button hitButton = hit.collider.gameObject.GetComponent<Button>();
+        if (hitButton != null)
+        {
+            hitButton.OnUse();
+        }
+    }
+}
 }
