@@ -4,30 +4,18 @@ using UnityEngine;
 
 public class Hinge : MonoBehaviour
 {
-    bool pointAtA = false;
-    float speed = 6f;
+    public Transform ObjectPivot;
+    public Vector3 TargetDegree;
+    public float Speed;
 
-    float angleA = 0f;
-    float angleB = 90f;
+    public bool isOpen = false;
 
-    Quaternion a;
-    Quaternion b;
-
-    private bool isOpen = false;
-
-    void Awake()
-    {
-        a = Quaternion.AngleAxis(angleA, Vector3.forward);
-        b = Quaternion.AngleAxis(angleB, Vector3.forward);
-    }
-
-    void Update()
+    private void Update()
     {
         if (isOpen)
-            pointAtA = !pointAtA;
-
-        Quaternion target = pointAtA ? a : b;
-        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * speed);
+        {
+            ObjectPivot.eulerAngles = Vector3.Lerp(ObjectPivot.eulerAngles, TargetDegree, Speed * Time.deltaTime);
+        }
     }
 
     public void Open()

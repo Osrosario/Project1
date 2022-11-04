@@ -33,6 +33,8 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Keypad();
+            OpenVent();
+            RemoveScrew();
         }
 
         //Respawn condition if player falls off the map.
@@ -103,17 +105,71 @@ public class PlayerControls : MonoBehaviour
             }
         }
     }
-	private void SwitchButton()
-{
-    RaycastHit hit;
-    if (Physics.Raycast(CamTransform.position, CamTransform.forward, out hit))
+
+    private void OpenVent()
     {
-        Debug.DrawLine(CamTransform.position + new Vector3(0f, -1f, 0f), hit.point, Color.green, 5f);
-        Button hitButton = hit.collider.gameObject.GetComponent<Button>();
-        if (hitButton != null)
+        RaycastHit hit;
+
+        if (Physics.Raycast(CamTransform.position, CamTransform.forward, out hit))
         {
-            hitButton.OnUse();
+            Debug.DrawLine(CamTransform.position, hit.point, Color.green, 5f);
+           
+            Hinge hitVent = hit.collider.gameObject.GetComponent<Hinge>();
+            
+            if (hitVent != null)
+            {
+                hitVent.Open();
+            }
+        }
+    }
+
+    private void RemoveScrew()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(CamTransform.position, CamTransform.forward, out hit))
+        {
+            Debug.DrawLine(CamTransform.position, hit.point, Color.green, 5f);
+
+            Screw hitScrew = hit.collider.gameObject.GetComponent<Screw>();
+
+            if (hitScrew != null)
+            {
+                hitScrew.Remove();
+            }
+        }
+    }
+
+    private void MovePanel()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(CamTransform.position, CamTransform.forward, out hit))
+        {
+            Debug.DrawLine(CamTransform.position, hit.point, Color.green, 5f);
+
+            Panel hitPanel = hit.collider.gameObject.GetComponent<Panel>();
+
+            if (hitPanel != null)
+            {
+                hitPanel.Move();
+            }
+        }
+    }
+
+    private void SwitchButton()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(CamTransform.position, CamTransform.forward, out hit))
+        {
+            Debug.DrawLine(CamTransform.position + new Vector3(0f, -1f, 0f), hit.point, Color.green, 5f);
+            Button hitButton = hit.collider.gameObject.GetComponent<Button>();
+            if (hitButton != null)
+            {
+                hitButton.OnUse();
+            }
         }
     }
 }
-}
+
