@@ -4,36 +4,16 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
-    public bool ButtonToggle = false;
-    public GameObject Floor;
-    public Material[] newMaterial = new Material[1];
-    public MeshRenderer meshRenderer;
-
-
-    void Start()
+    public GameObject SceneMaster;
+    private int sceneIndex;
+    
+    public void LoadScene()
     {
-
-        meshRenderer = GetComponent<MeshRenderer>();
+        SceneMaster.GetComponent<SceneMaster>().FadeToLevel(sceneIndex);
     }
-
-    private string buttonMessage = "Toggled!";
-    // Start is called before the first frame update
-    public void OnUse()
+   
+    public void LoadThisScene(int index)
     {
-        Debug.Log("button" +buttonMessage);
-        ButtonToggle = true;
-        {
-            if (ButtonToggle != true)
-            {
-                Floor.SetActive(false);
-                meshRenderer.material = newMaterial[0];
-            }
-            else
-            {
-                Floor.SetActive(true);
-                meshRenderer.material = newMaterial[1];
-            }
-        }
-
+        sceneIndex = index;
     }
 }

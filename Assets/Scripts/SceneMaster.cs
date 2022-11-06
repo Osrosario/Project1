@@ -2,27 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneMaster : MonoBehaviour
 {
-    public Animator BF_Animator;
+    [Header("SceneMaster's Animator")]
+    public Animator Animator;
+
+    [Header("Game Object of Keycard Image")]
+    public GameObject keycardBlue;
+    public GameObject keycardOrange;
+    public GameObject keycardGreen;
+
+    [Header("Image Scriptable Object")]
+    [SerializeField]
+    private ImageSO ImageSO;
 
     private int levelToLoad;
 
-    void Update()
+    private void Start()
     {
-        /*
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            FadeToLevel(0);
-        }
-        */
+        keycardBlue.SetActive(ImageSO.Activate[0]);
+        keycardOrange.SetActive(ImageSO.Activate[1]);
+        keycardGreen.SetActive(ImageSO.Activate[2]);
     }
 
     public void FadeToLevel(int sceneIndex)
     {
         levelToLoad = sceneIndex;
-        BF_Animator.SetTrigger("Fade_Out");
+        Animator.Play("Fade_Out");
     }
 
     public void OnFadeComplete()
