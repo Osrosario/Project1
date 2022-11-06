@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
+    [Header("Orientation from Player Object")]
     public Transform Orientation;
     public float SensitivityX;
     public float SensitivityY;

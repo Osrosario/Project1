@@ -7,6 +7,8 @@ using UnityEngine.Events;
 public class PickUp : MonoBehaviour
 {
     public UnityEvent InventoryStore;
+
+    [Header("Event: PlayerObject --> AddToInventory")]
     public GameObject ImageOfObject;
     public int IndexOfKeycard;
 

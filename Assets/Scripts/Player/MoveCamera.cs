@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoveCamera : MonoBehaviour
 {
+    [Header("Camera Position from Player Object")]
     public Transform CamPosition;
 
     void Update()

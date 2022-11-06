@@ -9,6 +9,9 @@ public class SceneMaster : MonoBehaviour
     [Header("SceneMaster's Animator")]
     public Animator Animator;
 
+    [Header("Crosshair Game Object")]
+    public GameObject Crosshair;
+
     [Header("Game Object of Keycard Image")]
     public GameObject keycardBlue;
     public GameObject keycardOrange;
@@ -25,6 +28,11 @@ public class SceneMaster : MonoBehaviour
         keycardBlue.SetActive(ImageSO.Activate[0]);
         keycardOrange.SetActive(ImageSO.Activate[1]);
         keycardGreen.SetActive(ImageSO.Activate[2]);
+    }
+
+    private void Update()
+    {
+        Crosshair.GetComponent<RectTransform>().Rotate(new Vector3(0, 0, 0.3f));
     }
 
     public void FadeToLevel(int sceneIndex)

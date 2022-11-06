@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
+    [Header("Button_Check Event: Button_Check --> LoadScene")]
+    [Header("Button_X Event: Vent --> HidePop")]
     public GameObject SceneMaster;
     private int sceneIndex;
     

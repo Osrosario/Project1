@@ -852,6 +852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 2520405774479519659}
+  Crosshair: {fileID: 2520405774939765470}
   keycardBlue: {fileID: 8679769737396482484}
   keycardOrange: {fileID: 2520405773508191662}
   keycardGreen: {fileID: 2520405774033891394}

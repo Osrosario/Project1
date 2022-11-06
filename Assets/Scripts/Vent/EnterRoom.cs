@@ -6,6 +6,9 @@ using TMPro;
 
 public class EnterRoom : MonoBehaviour
 {
+    [Header("First Event: Player --> DisableMovement")]
+    [Header("Second Event: Button_Check --> LoadThisScene")]
+
     public UnityEvent EnterEvent;
     public Animator SceneMasterAnimator;
     public TMP_Text PopUpText;
