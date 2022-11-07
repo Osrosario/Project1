@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CamTransform: {fileID: 0}
-  rayCastDistance: 1
+  rayCastDistance: 2
 --- !u!114 &7448875973386572964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +195,7 @@ MonoBehaviour:
   Orientation: {fileID: 402998160824154771}
   RB: {fileID: 402998160793963557}
   MoveSpeed: 5
-  GroundDrag: 5
+  GroundDrag: 7
   JumpForce: 12
   JumpCoolDown: 0.25
   AirMultiplier: 0.4
@@ -203,6 +203,7 @@ MonoBehaviour:
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  PositionSO: {fileID: 11400000, guid: 424cd7eecab6e4a47b6fa04a6886f6e3, type: 2}
 --- !u!1 &402998160824154768
 GameObject:
   m_ObjectHideFlags: 0

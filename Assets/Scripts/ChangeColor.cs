@@ -7,9 +7,7 @@ public class ChangeColor : MonoBehaviour
 {
     public Material LightOff, LightOn;
     private bool isOn = false;
-
-
-
+    
     public void lightSwitch()
     {
         if(isOn != true)
@@ -25,6 +23,7 @@ public class ChangeColor : MonoBehaviour
             isOn = false;
         }
     }
+
     public void SetState()
     {
         isOn = !isOn;

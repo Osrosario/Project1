@@ -9,6 +9,9 @@ public class SceneMaster : MonoBehaviour
     [Header("SceneMaster's Animator")]
     public Animator Animator;
 
+    [Header("Transform of Player Object")]
+    public Transform PlayerTransform;
+
     [Header("Crosshair Game Object")]
     public GameObject Crosshair;
 
@@ -20,6 +23,10 @@ public class SceneMaster : MonoBehaviour
     [Header("Image Scriptable Object")]
     [SerializeField]
     private ImageSO ImageSO;
+
+    [Header("Image Scriptable Object")]
+    [SerializeField]
+    private PositionSO PositionSO;
 
     private int levelToLoad;
 
@@ -38,11 +45,16 @@ public class SceneMaster : MonoBehaviour
     public void FadeToLevel(int sceneIndex)
     {
         levelToLoad = sceneIndex;
-        Animator.Play("Fade_Out");
+        Animator.SetTrigger("Fade_Out");
     }
 
     public void OnFadeComplete()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            PositionSO.Position["vents"] = PlayerTransform.position;
+        }
+
         SceneManager.LoadScene(levelToLoad);
     }
 }

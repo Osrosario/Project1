@@ -852,11 +852,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 2520405774479519659}
+  PlayerTransform: {fileID: 0}
   Crosshair: {fileID: 2520405774939765470}
   keycardBlue: {fileID: 8679769737396482484}
   keycardOrange: {fileID: 2520405773508191662}
   keycardGreen: {fileID: 2520405774033891394}
   ImageSO: {fileID: 11400000, guid: f558af44e0c576f4ca59ec126f0ef25f, type: 2}
+  PositionSO: {fileID: 11400000, guid: 424cd7eecab6e4a47b6fa04a6886f6e3, type: 2}
 --- !u!95 &2520405774479519659
 Animator:
   serializedVersion: 4

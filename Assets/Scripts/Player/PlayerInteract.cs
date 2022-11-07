@@ -54,13 +54,14 @@ public class PlayerInteract : MonoBehaviour
             }
         }
     }
+
     private void SwitchButton()
     {
         RaycastHit hit;
 
         if (Physics.Raycast(CamTransform.position, CamTransform.forward, out hit, rayCastDistance))
         {
-            ButtonDoor hitButton = hit.collider.gameObject.GetComponent<ButtonDoor>();
+            BlastDoorButton hitButton = hit.collider.gameObject.GetComponent<BlastDoorButton>();
             if (hitButton != null)
             {
                 hitButton.OnUse();

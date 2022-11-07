@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -28,6 +29,10 @@ public class PlayerMovement : MonoBehaviour
     private bool canDoubleJump;
     private bool canMove;
 
+    [Header("Image Scriptable Object")]
+    [SerializeField]
+    private PositionSO PositionSO;
+
     private void Start()
     {
         RB = GetComponent<Rigidbody>();
@@ -36,6 +41,22 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
         canDoubleJump = true;
         canMove = true;
+
+        switch(SceneManager.GetActiveScene().buildIndex)
+        {
+            case 0:
+                transform.position = PositionSO.Position["vents"];
+                break;
+            case 1:
+                transform.position = PositionSO.Position["roomOne"];
+                break;
+            case 2:
+                transform.position = PositionSO.Position["roomTwo"];
+                break;
+            case 3:
+                transform.position = PositionSO.Position["roomFour"];
+                break;
+        }
     }
 
     private void Update()

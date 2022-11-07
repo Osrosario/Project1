@@ -10,7 +10,7 @@ public class Keypad : MonoBehaviour
     public TextMeshPro DisplayText;
     public string Password;
 
-    private AudioSource AudioSource;
+    private AudioSource audioSource;
     private string pressedKeys = "";
     private string deniedText = "ACCESS DENIED";
     private string accessGrantedText = "ACCESS GRANTED";
@@ -21,7 +21,7 @@ public class Keypad : MonoBehaviour
 
     private void Start()
     {
-        AudioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -38,7 +38,7 @@ public class Keypad : MonoBehaviour
 
     public void RecordPressedKey(string input)
     {
-        AudioSource.PlayOneShot(BeepSound);
+        audioSource.PlayOneShot(BeepSound);
         
         if (canType)
         {
@@ -56,7 +56,7 @@ public class Keypad : MonoBehaviour
                     {
                         canType = false;
                         pressedKeys = accessGrantedText;
-                        AudioSource.PlayOneShot(AccessGrantedSound);
+                        audioSource.PlayOneShot(AccessGrantedSound);
                         isUnlocked = true;
                         UnlockDoor.Invoke();
                     }
@@ -64,7 +64,7 @@ public class Keypad : MonoBehaviour
                     {
                         canType = false;
                         pressedKeys = deniedText;
-                        AudioSource.PlayOneShot(DeniedSound);
+                        audioSource.PlayOneShot(DeniedSound);
                         StartCoroutine(DisplayMessage());
                     }
                 }
