@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Vent
   - Blade
+  - Red
+  - Green
   layers:
   - Default
   - TransparentFX

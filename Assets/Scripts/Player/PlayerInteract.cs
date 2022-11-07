@@ -14,6 +14,7 @@ public class PlayerInteract : MonoBehaviour
         {
             Keypad();
             Store();
+            SwitchButton();
         }
     }
 
@@ -50,6 +51,19 @@ public class PlayerInteract : MonoBehaviour
             if (hitObject != null)
             {
                 hitObject.Store();
+            }
+        }
+    }
+    private void SwitchButton()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(CamTransform.position, CamTransform.forward, out hit, rayCastDistance))
+        {
+            ButtonDoor hitButton = hit.collider.gameObject.GetComponent<ButtonDoor>();
+            if (hitButton != null)
+            {
+                hitButton.OnUse();
             }
         }
     }

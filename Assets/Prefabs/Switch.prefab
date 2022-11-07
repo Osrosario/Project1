@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2541883474342596392}
   - component: {fileID: 4391737267876802382}
   - component: {fileID: 4708833276761926886}
-  - component: {fileID: 547750821965828506}
   m_Layer: 0
   m_Name: Button (1)
   m_TagString: Untagged
@@ -98,25 +97,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &547750821965828506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6188829070362716090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ffd637a0df4e9948a159beec3517cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorAnimatorA: []
-  doorAnimatorB: []
-  newMaterial:
-  - {fileID: 0}
-  meshRenderer: {fileID: 0}
-  strA: []
-  strB: []
 --- !u!1 &6542794381706144338
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +109,6 @@ GameObject:
   - component: {fileID: 7669651446894682876}
   - component: {fileID: 4186027006450930878}
   - component: {fileID: 2968775203210334857}
-  - component: {fileID: 7588515416054574563}
   m_Layer: 0
   m_Name: Button (2)
   m_TagString: Untagged
@@ -215,25 +194,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7588515416054574563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6542794381706144338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ffd637a0df4e9948a159beec3517cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorAnimatorA: []
-  doorAnimatorB: []
-  newMaterial:
-  - {fileID: 0}
-  meshRenderer: {fileID: 0}
-  strA: []
-  strB: []
 --- !u!1 &7178408304954769668
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,7 +339,6 @@ GameObject:
   - component: {fileID: 7178408306328347366}
   - component: {fileID: 7178408306328347367}
   - component: {fileID: 7178408306328347364}
-  - component: {fileID: 3460333388023012086}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -465,25 +424,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3460333388023012086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7178408306328347363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ffd637a0df4e9948a159beec3517cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorAnimatorA: []
-  doorAnimatorB: []
-  newMaterial:
-  - {fileID: 0}
-  meshRenderer: {fileID: 0}
-  strA: []
-  strB: []
 --- !u!1 &7850633338849031375
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +436,6 @@ GameObject:
   - component: {fileID: 3689749362924707034}
   - component: {fileID: 6601648974335429046}
   - component: {fileID: 5209954813209198739}
-  - component: {fileID: 2640716497559519474}
   m_Layer: 0
   m_Name: Button (3)
   m_TagString: Untagged
@@ -582,22 +521,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2640716497559519474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7850633338849031375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ffd637a0df4e9948a159beec3517cd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  doorAnimatorA: []
-  doorAnimatorB: []
-  newMaterial:
-  - {fileID: 0}
-  meshRenderer: {fileID: 0}
-  strA: []
-  strB: []
