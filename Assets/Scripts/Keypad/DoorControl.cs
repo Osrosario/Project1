@@ -46,4 +46,10 @@ public class DoorControl : MonoBehaviour
             audioSource.PlayOneShot(OpenDoorSound);
         }
     }
+
+    public void ResetState()
+    {
+        audioSource.PlayOneShot(CloseDoorSound);
+        isUnlocked = false;
+    }
 }

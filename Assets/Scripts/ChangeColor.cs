@@ -8,24 +8,27 @@ public class ChangeColor : MonoBehaviour
     public Material LightOff, LightOn;
     private bool isOn = false;
     
-    public void lightSwitch()
+    public void Update()
     {
-        if(isOn != true)
-        {
-            gameObject.GetComponent<MeshRenderer>().material = LightOn;
-            gameObject.tag = "Green";
-            isOn = true;
-        }
-        else
+        if (!isOn)
         {
             gameObject.GetComponent<MeshRenderer>().material = LightOff;
             gameObject.tag = "Red";
-            isOn = false;
+        }
+        else
+        {
+            gameObject.GetComponent<MeshRenderer>().material = LightOn;
+            gameObject.tag = "Green";
         }
     }
 
     public void SetState()
     {
         isOn = !isOn;
+    }
+
+    public void ResetState()
+    {
+        isOn = false;
     }
 }
