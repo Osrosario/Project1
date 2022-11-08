@@ -1011,6 +1011,7 @@ GameObject:
   - component: {fileID: 1358380688}
   - component: {fileID: 1358380687}
   - component: {fileID: 1358380686}
+  - component: {fileID: 1358380689}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -1096,6 +1097,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358380684}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1358380689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358380684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e3f04f11b10cb344b7b7f3af49f150f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SwitchEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  SwitchSound: {fileID: 0}
+  ButtonAnimator: {fileID: 0}
+  AnimationName: 
 --- !u!1001 &1408745008
 PrefabInstance:
   m_ObjectHideFlags: 0
