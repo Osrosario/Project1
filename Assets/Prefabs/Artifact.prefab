@@ -126,5 +126,5 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   ImageOfObject: {fileID: 0}
-  IndexOfKeycard: 0
-  ImageSO: {fileID: 0}
+  IndexOfKeycard: 3
+  ImageSO: {fileID: 11400000, guid: f558af44e0c576f4ca59ec126f0ef25f, type: 2}

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3390dd3a721c6247bce0419d24fab9d, type: 3}
   m_Name: ImageSO
   m_EditorClassIdentifier: 
-  isActive: 000000
+  isActive: 00000000

@@ -5,29 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Transform Orientation;
-    public Rigidbody RB;
-    
-    [Header("Movement")]
-    public float MoveSpeed;
-    public float GroundDrag;
+    public Transform CamTransform;
+    public CharacterController CC;
+    public float MouseSensitivity;
+    public float moveSpeed;
+    public float gravity = -9.8f;
+    public float jumpSpeed;
+    public float verticalSpeed;
 
-    [Header("Jumping")]
-    public float JumpForce;
-    public float JumpCoolDown;
-    public float AirMultiplier;
-
-    [Header("Ground Check")]
-    public float PlayerHeight;
-    public LayerMask WhatIsGround;
-    
-    private bool isGrounded;
-    private float horizontalInput;
-    private float verticalInput;
-    private Vector3 moveDirection;
-    private bool readyToJump;
-    private bool canDoubleJump;
-    private bool canMove;
+    private float camRotation;
+    public bool canMove;
 
     [Header("Image Scriptable Object")]
     [SerializeField]
@@ -35,91 +22,41 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        RB = GetComponent<Rigidbody>();
-        RB.freezeRotation = true;
+        Cursor.lockState = CursorLockMode.Locked;
         
-        readyToJump = true;
-        canDoubleJump = true;
         canMove = true;
 
         switch(SceneManager.GetActiveScene().buildIndex)
         {
             case 0:
                 transform.position = PositionSO.Position["vents"];
+                jumpSpeed = 12f;
                 break;
             case 1:
                 transform.position = PositionSO.Position["roomOne"];
+                jumpSpeed = 0;
                 break;
             case 2:
                 transform.position = PositionSO.Position["roomTwo"];
+                jumpSpeed = 0;
                 break;
             case 3:
+                transform.position = PositionSO.Position["roomThree"];
+                jumpSpeed = 15;
+                break;
+            case 4:
                 transform.position = PositionSO.Position["roomFour"];
+                jumpSpeed = 0;
                 break;
         }
     }
 
     private void Update()
     {
-        //Ground Check
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, PlayerHeight * 0.5f + 0.2f, WhatIsGround);
-
         if (canMove)
         {
-            MyInput();
-            SpeedControl();
-        }
-        
-
-        //Apply Drag
-        if (isGrounded)
-        {
-            RB.drag = GroundDrag;
-            ResetJump();
-        }
-        else
-        {
-            RB.drag = 0;
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
-
-    private void MyInput()
-    {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-
-        if (Input.GetKeyDown(KeyCode.Space) && readyToJump && isGrounded)
-        {
-            readyToJump = false;
-            Jump(JumpForce);
-            //Invoke(nameof(ResetJump), JumpCoolDown);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) && canDoubleJump && !isGrounded)
-        {
-            canDoubleJump = false;
-            Jump(JumpForce * 0.75f);
-            //Invoke(nameof(ResetJump), JumpCoolDown);
-        }
-    }
-
-    private void MovePlayer()
-    {
-        //Calculate Movement Direction
-        moveDirection = Orientation.forward * verticalInput + Orientation.right * horizontalInput;
-        
-        if (isGrounded)
-        {
-            RB.AddForce(moveDirection.normalized * MoveSpeed * 10f, ForceMode.Force);
-        }
-        else
-        {
-            RB.AddForce(moveDirection.normalized * MoveSpeed * 10f * AirMultiplier, ForceMode.Force);
+           Camera();
+           Movement();
         }
     }
 
@@ -128,28 +65,39 @@ public class PlayerMovement : MonoBehaviour
         canMove = !canMove;
     }
 
-    private void SpeedControl()
+    private void Camera()
     {
-        Vector3 flatVelocity = new Vector3(RB.velocity.x, 0f, RB.velocity.z);
+        float mouseYInput = Input.GetAxis("Mouse Y") * MouseSensitivity;
+        camRotation += -mouseYInput;
+        camRotation = Mathf.Clamp(camRotation, -90f, 90f);
+        CamTransform.localRotation = Quaternion.Euler(new Vector3(camRotation, 0f, 0f));
 
-        //Limit Velocity
-        if (flatVelocity.magnitude > MoveSpeed)
+        float mouseXInput = Input.GetAxis("Mouse X") * MouseSensitivity;
+        transform.rotation = Quaternion.Euler(transform.eulerAngles + new Vector3(0f, mouseXInput, 0f));
+    }
+
+    private void Movement()
+    {
+        Vector3 movement = Vector3.zero;
+
+        float forwardMovement = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime; //Velocity for forward movement
+        float sideMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime; //Velocity for side movement
+
+        movement += (transform.forward * forwardMovement) + (transform.right * sideMovement); //represents the direction of movement
+
+        if (CC.isGrounded) //Has the object touched a collider?
         {
-            Vector3 limitedVelocity = flatVelocity.normalized * MoveSpeed;
-            RB.velocity = new Vector3(limitedVelocity.x, RB.velocity.y, limitedVelocity.z);
+            verticalSpeed = 0;
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                verticalSpeed = jumpSpeed;
+            }
         }
-    }
 
-    private void Jump(float jumpForce)
-    {
-        //Reset Y Velocity
-        RB.velocity = new Vector3(RB.velocity.x, 0f, RB.velocity.z);
-        RB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-    }
+        verticalSpeed += (gravity * Time.deltaTime);
+        movement += (transform.up * verticalSpeed * Time.deltaTime);
 
-    private void ResetJump()
-    {
-        readyToJump = true;
-        canDoubleJump = true;
+        CC.Move(movement);
     }
 }

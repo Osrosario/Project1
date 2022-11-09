@@ -15,10 +15,11 @@ public class SceneMaster : MonoBehaviour
     [Header("Crosshair Game Object")]
     public GameObject Crosshair;
 
-    [Header("Game Object of Keycard Image")]
+    [Header("Image of Game Object")]
     public GameObject keycardBlue;
     public GameObject keycardOrange;
     public GameObject keycardGreen;
+    public GameObject artifact;
 
     [Header("Image Scriptable Object")]
     [SerializeField]
@@ -35,6 +36,7 @@ public class SceneMaster : MonoBehaviour
         keycardBlue.SetActive(ImageSO.Activate[0]);
         keycardOrange.SetActive(ImageSO.Activate[1]);
         keycardGreen.SetActive(ImageSO.Activate[2]);
+        artifact.SetActive(ImageSO.Activate[3]);
     }
 
     private void Update()
@@ -52,7 +54,8 @@ public class SceneMaster : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            PositionSO.Position["vents"] = PlayerTransform.position;
+            PositionSO.Position["vents"] = new Vector3(PlayerTransform.position.x, PlayerTransform.position.y, PlayerTransform.position.z);
+            Debug.Log(PositionSO.Position["vents"]);
         }
 
         SceneManager.LoadScene(levelToLoad);

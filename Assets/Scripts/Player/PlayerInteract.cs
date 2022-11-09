@@ -15,6 +15,7 @@ public class PlayerInteract : MonoBehaviour
             Keypad();
             Store();
             SwitchButton();
+            PlaceKeys();
         }
     }
 
@@ -62,9 +63,25 @@ public class PlayerInteract : MonoBehaviour
         if (Physics.Raycast(CamTransform.position, CamTransform.forward, out hit, rayCastDistance))
         {
             BlastDoorButton hitButton = hit.collider.gameObject.GetComponent<BlastDoorButton>();
+            
             if (hitButton != null)
             {
                 hitButton.Press();
+            }
+        }
+    }
+
+    private void PlaceKeys()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(CamTransform.position, CamTransform.forward, out hit, rayCastDistance))
+        {
+            KeyControl hitButton = hit.collider.gameObject.GetComponent<KeyControl>();
+            
+            if (hitButton != null)
+            {
+                hitButton.KeyUnlock();
             }
         }
     }

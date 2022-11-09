@@ -8,6 +8,7 @@ public class EnterRoom : MonoBehaviour
 {
     [Header("First Event: Player --> DisableMovement")]
     [Header("Second Event: Button_Check --> LoadThisScene")]
+    [Header("Second Event: Button_x --> SendVentObject")]
 
     public UnityEvent EnterEvent;
     public Animator SceneMasterAnimator;
@@ -60,7 +61,7 @@ public class EnterRoom : MonoBehaviour
             isPromptShowing = false;
         }
     }
-
+    
     public void HidePopUp()
     {
         Debug.Log("HIDE");
