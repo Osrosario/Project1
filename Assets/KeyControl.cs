@@ -19,7 +19,7 @@ public class KeyControl : MonoBehaviour
     // Update is called once per frame
     public void KeyUnlock()
     {
-        //keyCards = Inventory.GetInventory();
+        keyCards = Inventory.GetInventory();
 
 
         for(int i = 0; i < keyCards.Count; i++) 
