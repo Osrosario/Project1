@@ -10,7 +10,7 @@ public class PositionSO : ScriptableObject
     {
         { "vents", new Vector3(-10.75f, 17f, 0f) },
         { "roomOne", new Vector3(0f, 1.7f, -4.25f) },
-        { "roomTwo", new Vector3(6f, 1.5f, -5.45f) },
+        { "roomTwo", new Vector3(6f, 1.5f, -5.2f) },
         { "roomFour", new Vector3(0f, 0f, 0f) }
     };
 

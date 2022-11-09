@@ -33,9 +33,9 @@ public class DoorControl : MonoBehaviour
         }
     }
 
-    public void Unlock()
+    public void Unlock(bool state)
     {
-        isUnlocked = !isUnlocked;
+        isUnlocked = state;
 
         if (isUnlocked)
         {
@@ -47,7 +47,7 @@ public class DoorControl : MonoBehaviour
         }
     }
 
-    public void ResetState()
+    public void SetState()
     {
         audioSource.PlayOneShot(CloseDoorSound);
         isUnlocked = false;

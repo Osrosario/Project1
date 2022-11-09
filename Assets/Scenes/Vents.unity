@@ -19488,6 +19488,14 @@ PrefabInstance:
     - target: {fileID: 2520405775112617925, guid: 1e188a381ec70d842a0729eb210074c7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 2019597554}
+    - target: {fileID: 2520405775112617925, guid: 1e188a381ec70d842a0729eb210074c7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HidePopUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2520405775112617925, guid: 1e188a381ec70d842a0729eb210074c7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EnterRoom, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2520405775185365411, guid: 1e188a381ec70d842a0729eb210074c7, type: 3}
       propertyPath: m_AnchorMax.x
