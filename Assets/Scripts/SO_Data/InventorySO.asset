@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: InventorySO
   m_EditorClassIdentifier: 
   keyList:
-  - blueKeycard
-  - orangeKeycard
+  - Artifact
+  - Artifact
