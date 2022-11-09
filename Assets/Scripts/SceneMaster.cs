@@ -20,9 +20,6 @@ public class SceneMaster : MonoBehaviour
     public GameObject keycardOrange;
     public GameObject keycardGreen;
 
-    [Header("Game Object of Artifact")]
-    public GameObject Artifact;
-
     [Header("Image Scriptable Object")]
     [SerializeField]
     private ImageSO ImageSO;
@@ -38,7 +35,6 @@ public class SceneMaster : MonoBehaviour
         keycardBlue.SetActive(ImageSO.Activate[0]);
         keycardOrange.SetActive(ImageSO.Activate[1]);
         keycardGreen.SetActive(ImageSO.Activate[2]);
-        Artifact.SetActive(ImageSO.Activate[3]);
     }
 
     private void Update()

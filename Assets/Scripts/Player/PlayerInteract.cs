@@ -15,7 +15,6 @@ public class PlayerInteract : MonoBehaviour
             Keypad();
             Store();
             SwitchButton();
-            KeyUnlockDoor();
         }
     }
 
@@ -65,20 +64,7 @@ public class PlayerInteract : MonoBehaviour
             BlastDoorButton hitButton = hit.collider.gameObject.GetComponent<BlastDoorButton>();
             if (hitButton != null)
             {
-                hitButton.OnUse();
-            }
-        }
-    }
-    private void KeyUnlockDoor()
-    {
-        RaycastHit hit;
-
-        if (Physics.Raycast(CamTransform.position, CamTransform.forward, out hit, rayCastDistance))
-        {
-            KeyControl hitHolder = hit.collider.gameObject.GetComponent<KeyControl>();
-            if (hitHolder != null)
-            {
-                hitHolder.KeyUnlock();
+                hitButton.Press();
             }
         }
     }

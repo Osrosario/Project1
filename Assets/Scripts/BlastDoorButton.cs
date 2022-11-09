@@ -1,14 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class BlastDoorButton : MonoBehaviour
 {
-    public UnityEvent SwitchEvent;
     public AudioClip SwitchSound;
+
+    [Header("Paired Buttons")]
+    public GameObject ParallelButton1;
+    public GameObject ParallelButton2;
+
+    [Header("Paired Doors")]
+    public GameObject DoorObject;
+
+    [Header("Animation")]
     public Animator ButtonAnimator;
     public string AnimationName;
+    
+    [Header("Material")]
+    public Material LightOff, LightOn;
+    private bool isOn = false;
 
     private AudioSource audioSource;
 
@@ -17,10 +28,43 @@ public class BlastDoorButton : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void OnUse()
+    public void Update()
+    {
+        if (!isOn)
+        {
+            gameObject.GetComponent<MeshRenderer>().material = LightOff;
+        }
+        else
+        {
+            gameObject.GetComponent<MeshRenderer>().material = LightOn;
+        }
+    }
+
+    public void SetState()
+    {
+        if (isOn != true)
+        {
+            isOn = true;
+            DoorObject.GetComponent<DoorControl>().Unlock(isOn);
+        }
+        else
+        {
+            isOn = false;
+            DoorObject.GetComponent<DoorControl>().Unlock(isOn);
+        }
+    }
+
+    public void Press()
     {
         ButtonAnimator.Play(AnimationName);
-        audioSource.PlayOneShot(SwitchSound);
-        SwitchEvent.Invoke();
+        
+        if (isOn != true)
+        {
+            audioSource.PlayOneShot(SwitchSound);
+            isOn = true;
+            ParallelButton1.GetComponent<BlastDoorButton>().SetState();
+            ParallelButton2.GetComponent<BlastDoorButton>().SetState();
+            DoorObject.GetComponent<DoorControl>().Unlock(isOn);
+        }
     }
 }
