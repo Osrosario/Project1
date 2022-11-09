@@ -10,13 +10,16 @@ public class KeyControl : MonoBehaviour
     public UnityEvent SwitchEvent;
     public GameObject keyBlue, keyGreen, keyOrange;
     public PlayerStats Inventory;
+    public ImageSO Image;
     private List<string> keyCards;
+    private List<bool> Items;
     public int count = 0;
     
 
     // Update is called once per frame
     public void KeyUnlock()
     {
+        
         keyCards = Inventory.GetInventory();
 
         for(int i = 0; i < keyCards.Count; i++) 
