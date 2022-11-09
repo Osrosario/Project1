@@ -22,4 +22,12 @@ public class PlayerStats : MonoBehaviour
         Inventory.Add(theObject);
         InventorySO.KeyList = Inventory;
     }
+
+    public List<string> GetInventory()
+    {
+        return Inventory;
+    }
+    public void EmptyInventory(){
+        InventorySO.KeyList.Clear();         
+    }
 }
