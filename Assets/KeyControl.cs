@@ -20,7 +20,7 @@ public class KeyControl : MonoBehaviour
     public void KeyUnlock()
     {
         keyCards = Inventory.GetInventory();
-
+        
 
         for(int i = 0; i < keyCards.Count; i++) 
         {
